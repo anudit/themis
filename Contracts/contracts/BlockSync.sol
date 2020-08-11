@@ -3,10 +3,10 @@ pragma solidity >=0.7.0 <0.8.0;
 
 contract BlockSync {
 
-    address owner;
-    address syncer;
+    address public owner;
+    address public syncer;
 
-    uint256 lastSyncBlockNumber = 0;
+    uint256 public lastSyncBlockNumber = 0;
     mapping (bytes32 => bool) public validHashes;
     mapping (uint256 => bool) public validBlocks;
 
