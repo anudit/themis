@@ -1,0 +1,31 @@
+{
+  "name": "themis",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "clean": "rm -rf build",
+    "migrate": "npm run clean & npm run migrate:deploy",
+    "migrate:deploy": "truffle migrate",
+    "migrate-prod": "npm run clean & npm run migrate-prod:deploy",
+    "migrate-prod:deploy": "truffle migrate --network matic"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anudit/themis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anudit/themis/issues"
+  },
+  "homepage": "https://github.com/anudit/themis#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "truffle": "^5.1.41",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.2.11"
+  }
+}
