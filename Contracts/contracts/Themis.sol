@@ -65,4 +65,26 @@ contract Themis {
 
     }
 
+    function getParityData(uint256 _index)
+        public view
+        returns (
+            string memory ccIsoAlpha2, string memory ccIsoAlpha3, uint256 exchangeRate, uint256 ppp, uint256 pppConversionFactor
+        )
+    {
+        return (
+            parityData[_index].ccIsoAlpha2,
+            parityData[_index].ccIsoAlpha3,
+            parityData[_index].exchangeRate,
+            parityData[_index].ppp,
+            parityData[_index].pppConversionFactor
+        );
+    }
+
+    function getConversionFactor(uint256 _index)
+        public view
+        returns (uint256 pppConversionFactor)
+    {
+        return parityData[_index].pppConversionFactor;
+    }
+
 }

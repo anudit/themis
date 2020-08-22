@@ -72,6 +72,64 @@ const THEMIS_ABI = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "getConversionFactor",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "pppConversionFactor",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "getParityData",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "ccIsoAlpha2",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ccIsoAlpha3",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "exchangeRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ppp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "pppConversionFactor",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "owner",
 		"outputs": [
@@ -138,7 +196,7 @@ const THEMIS_ABI = [
 	}
 ];
 
-const THEMIS_Address = '0xD4822b35ED7574510426e0828c2188e84DEdD681';
+const THEMIS_Address = '0x494D59F11c6da8A49aB5E3DC4a4A6dcdb6b68f6b';
 
 const themisInstance =  new web3.eth.Contract(THEMIS_ABI, THEMIS_Address, {from: account_pubKey});
 

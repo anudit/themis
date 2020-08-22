@@ -1,5 +1,5 @@
 # Themis ⚖
-Enabling Purchasing Power Parity on Ethereum to allow for more equitable and dynamic pricing of products.
+An oracle enabling Purchasing Power Parity on Ethereum to allow for more equitable and dynamic pricing of products.
 
 ## Details
 
@@ -40,6 +40,223 @@ Enabling Purchasing Power Parity on Ethereum to allow for more equitable and dyn
 
 
 ## Integration Guide
+
+**Intergration Example Contract** 👉 [ThemisIntegration.sol](https://github.com/anudit/themis/blob/master/Contracts/contracts/ThemisIntegration.sol)
+
+**Latest Deployment Address** 👉 [0x494D59F11c6da8A49aB5E3DC4a4A6dcdb6b68f6b](https://mumbai-explorer.matic.today/address/0x494D59F11c6da8A49aB5E3DC4a4A6dcdb6b68f6b/)
+
+**Solidity Interface**
+```solidity
+interface IThemis {
+
+    function getConversionFactor(uint256 _index) view external returns (uint256);
+    function getParityData(uint256 _index)
+        view external
+        returns (
+            string memory ccIsoAlpha2, string memory ccIsoAlpha3, uint256 exchangeRate, uint256 ppp, uint256 pppConversionFactor
+        );
+}
+```
+
+**ABI**
+
+<details><summary>View</summary>
+<p>
+
+```json
+ [
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_syncerAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_ccIsoAlpha2",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ccIsoAlpha3",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_exchangeRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_ppp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_pppConversionFactor",
+				"type": "uint256"
+			}
+		],
+		"name": "updateParityData",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_newSyncer",
+				"type": "address"
+			}
+		],
+		"name": "updateSyncer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "getConversionFactor",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "pppConversionFactor",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "getParityData",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "ccIsoAlpha2",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ccIsoAlpha3",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "exchangeRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ppp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "pppConversionFactor",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "parityData",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "ccIsoAlpha2",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ccIsoAlpha3",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "exchangeRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ppp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "pppConversionFactor",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "syncer",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+```
+
+
+</p>
+</details>
+
 
 ## Supported Country Codes
 | Country Name                               | Alpha-2 code | Alpha-3 code | Query Index |
