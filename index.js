@@ -276,4 +276,8 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-start();
+try {
+	start();
+} catch (error) {
+	console.error(error);
+}

@@ -1,10 +1,10 @@
 # Themis ⚖
 An oracle enabling Purchasing Power Parity on Ethereum to allow for more equitable and dynamic pricing of products.
 
-## Details
+## Oracle Details
 
 ### Response Schema
-```
+```c++
 {
     0: string: ccIsoAlpha2
     1: string: ccIsoAlpha3
@@ -15,7 +15,7 @@ An oracle enabling Purchasing Power Parity on Ethereum to allow for more equitab
 ```
 
 ### Response Example
-```
+```js
 {
     'ccIsoAlpha2': 'IN',
     'ccIsoAlpha3': 'IND',
@@ -46,7 +46,7 @@ An oracle enabling Purchasing Power Parity on Ethereum to allow for more equitab
 **Latest Deployment Address** 👉 [0x494D59F11c6da8A49aB5E3DC4a4A6dcdb6b68f6b](https://mumbai-explorer.matic.today/address/0x494D59F11c6da8A49aB5E3DC4a4A6dcdb6b68f6b/)
 
 **Solidity Interface**
-```solidity
+```js
 interface IThemis {
 
     function getConversionFactor(uint256 _index) view external returns (uint256);
