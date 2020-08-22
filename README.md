@@ -1,15 +1,30 @@
-# Themis
+# Themis ⚖
 Enabling Purchasing Power Parity on Ethereum to allow for more equitable and dynamic pricing of products.
 
 ## Details
 
-### Example Response
-
+### Response Schema
 ```
 {
-    ...
+    0: string: ccIsoAlpha2
+    1: string: ccIsoAlpha3
+    2: uint256: exchangeRate
+    3: uint256: ppp
+    4: uint256: pppConversionFactor
 }
 ```
+
+### Response Example
+```
+{
+    'ccIsoAlpha2': 'IN',
+    'ccIsoAlpha3': 'IND',
+    'exchangeRate': 74929300,
+    'ppp': 185530,
+    'pppConversionFactor': 247606743957303,
+}
+```
+### Response Details
 
 ℹ All baselines are in USD.
 
@@ -17,11 +32,11 @@ Enabling Purchasing Power Parity on Ethereum to allow for more equitable and dyn
 
 - **countryCodeIsoAlpha3** : This is the ISO Alpha 3 Standard Country Code. You can find the available country codes below.
 
-- **exchangeRate** : Exchange rate of the currency vs USD.
+- **exchangeRate** : Exchange rate of the currency vs USD. ℹ️ The original value is multiplied by (10^6) and returned by the contract. This is done to allow storing decimals on Ethereum.
 
-- **ppp** : This is the Purchasing Power Pairity. ℹ️ The actual value is multiplied by (10**4) and returned. This is done to allow storing decimals on Ethereum.
+- **ppp** : This is the Purchasing Power Pairity. ℹ️ The original value is multiplied by (10^4) and returned by the contract.
 
-- **pppConversionFactor** : The `exchangeRate` and `ppp` property are used to compute the `pppConversionFactor`.  ℹ️ The actual value is multiplied by (10^17) and returned. This is done to allow storing decimals on Ethereum.
+- **pppConversionFactor** : The `exchangeRate` and `ppp` property are used to compute the `pppConversionFactor`.  ℹ️ The original value is multiplied by (10^15) and returned by the contract.
 
 
 ## Integration Guide

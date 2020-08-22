@@ -1,15 +1,25 @@
 {
-  "name": "testblockport",
+  "name": "themis",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anudit/themis.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anudit/themis/issues"
+  },
+  "homepage": "https://github.com/anudit/themis#readme",
   "dependencies": {
-    "@maticnetwork/dagger": "^0.1.0",
+    "bn.js": "^5.1.3",
     "dotenv": "^8.2.0",
     "ethereumjs-tx": "^1.3.7",
     "node-fetch": "^2.6.0",
