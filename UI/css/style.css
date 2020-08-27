@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  body {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+  }
+
+.input-custom {
+  border-color: #e2e2e2;
+  border-style: solid;
+  border-width: thin;
+  width: 100px;
+}

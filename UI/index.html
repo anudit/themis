@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Themis ⚖</title>
+        <meta name="author" content="" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div style="display: none; flex-direction: column; align-items: center;" id="framePay">
+            <center>
+                <h2>
+                    Pay in ETH according to<br />
+                    Purchasing Power Parity ⚖
+                </h2>
+                <br />
+                <h3>
+                    Your are paying <span id="payAmount">10</span>&nbsp;ETH<br />
+                    to <span id="payTo">0x0</span>
+                </h3>
+            </center>
+            <br />
+            <button class="mag-btn" onclick="handleSend()">Send</button>
+
+            <br />
+            <div>
+                <a href="./?create=1">Create your own link.</a>
+            </div>
+        </div>
+
+        <div style="display: none; flex-direction: column; align-items: center;" id="frameCreate">
+            <center>
+                <h2>
+                    Receive ETH according to<br />
+                    Purchasing Power Parity ⚖
+                </h2>
+            </center>
+            <div id="inpFrame1">
+                <input type="number" id="inpvalue" class="input-custom" style="width: 200px; padding: 20px;" placeholder="Amount in ETH" />
+            </div>
+            <br/>
+            <div id="inpFrame2">
+                <input type="text" id="inpadd" class="input-custom" style="width: 200px; padding: 10px;" placeholder="Receiver Address" />
+            </div>
+            <br />
+            <button class="mag-btn" onclick="copylink()">Copy Link</button>
+        </div>
+
+        <script src="js/web3@1.2.11.js"></script>
+        <script src="js/portis.js"></script>
+
+        <script src="js/globals.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
