@@ -1,5 +1,5 @@
 # Themis ⚖
-An oracle enabling Purchasing Power Parity on Ethereum to allow for more equitable and dynamic pricing of products allowing you to send and receive payments normalized to the geolocation of the users.
+An oracle enabling Purchasing Power Parity on Ethereum to allow for a more equitable and dynamic pricing of products allowing you to send and receive payments normalized to the geolocation of the users.
 
 ## Oracle Details
 
