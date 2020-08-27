@@ -24,3 +24,35 @@
   border-width: thin;
   width: 100px;
 }
+
+
+button {
+  width: 125px;
+  padding: 50px;
+  font-size: 16px;
+  border-radius: 100px;
+  border-width: thin;
+  border-style: solid;
+  color: #767676;
+  font-weight: 500;
+  font-family: 'Segoe UI';
+  padding-left: 43px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  width: 125px;
+  padding: 50px;
+  font-size: 16px;
+  border-radius: 100px;
+  border-style: none;
+  background-color: rgb(118 118 118 / 16%) !important;
+  color: #242424;
+  font-weight: 500;
+  font-family: 'Segoe UI';
+  padding-left: 43px;
+  background: transparent;
+  cursor: pointer;
+}

@@ -2,34 +2,36 @@ let mainBtn = document.querySelector('#main-btn');
 
 async function init(){
 
-    let {error, result} = await portis.isLoggedIn();
-    if (result == false){
-        console.log('Not Loggedin')
+    if (getParameterByName('create') === '1'){
+        document.querySelector('#frameCreate').style.display = 'flex';
+    }
+    else if(getParameterByName('to')!= null && getParameterByName('amt') != null){
+        document.querySelector('#framePay').style.display = 'flex';
+        document.querySelector('#payTo').innerText = getParameterByName('to');
+        window.RECEIVER = getParameterByName('to');
+        getParityAmount(getParameterByName('amt')).then((amt)=>{
+            document.querySelector('#payAmount').innerText = amt.toFixed(2);
+        })
+
     }
     else{
-        console.log('Loggedin')
-
-        if (getParameterByName('create') === '1'){
-            document.querySelector('#frameCreate').style.display = 'flex';
-        }
-        else if(getParameterByName('to')!= null && getParameterByName('amt') != null){
-            document.querySelector('#framePay').style.display = 'flex';
-            document.querySelector('#payTo').innerText = getParameterByName('to');
-            window.RECEIVER = getParameterByName('to');
-            getParityAmount(getParameterByName('amt')).then((amt)=>{
-                document.querySelector('#payAmount').innerText = amt.toFixed(2);
-            })
-
-        }
-        else{
-            document.querySelector('#frameCreate').style.display = 'flex';
-        }
-
+        document.querySelector('#frameCreate').style.display = 'flex';
     }
 
-    // portis.onLogin((walletAddress, email, reputation) => {
-    //     mainBtn.innerText = 'Send';
-    // });
+
+
+
+    // let {error, result} = await portis.isLoggedIn();
+    // if (result == false){
+    //     console.log('Not Loggedin')
+    // }
+    // else{
+    //     console.log('Loggedin')
+
+
+    // }
+
+
 
 }
 
@@ -46,7 +48,13 @@ async function handleSend(){
         from: accs[0],
         value:web3.utils.toWei((PAYABLE_AMT).toString(), "ether")
     }, function(error, hash){
-        console.log(error, hash)
+        if (error){
+            alert(error)
+            console.log(error)
+        }
+        else {
+            console.log(hash)
+        }
     });
   }
 
@@ -86,5 +94,8 @@ async function copylink(){
     let amt = document.querySelector('#inpvalue').value;
     let to = document.querySelector('#inpadd').value;
 
-    copyToClipboard(`http://localhost/?to=${to}&amt=${amt}`)
+    copyToClipboard(`https://themis.anudit.dev/?to=${to}&amt=${amt}`)
+
+    let btnCopy = document.querySelector('#btn-copy');
+    btnCopy.innerText = 'Done';
 }

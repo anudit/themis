@@ -16,11 +16,14 @@ window.addEventListener('load', async () => {
 
         try {
 
+            init();
             window.portis = new Portis('46cabecf-b3a1-4a29-b4b4-b8691b410a39', 'maticMumbai');
+            portis.onLogin((walletAddress, email, reputation) => {
+                console.log('Ready Portis')
+            });
             window.web3 = new Web3(portis.provider)
             web3.currentProvider.enable();
             OracleContract = new web3.eth.Contract(oracleABI, oracleAddress);
-            init();
 
         } catch (error) {
             console.log(error);
@@ -28,10 +31,13 @@ window.addEventListener('load', async () => {
         }
 
     } else{
+        init();
         window.portis = new Portis('46cabecf-b3a1-4a29-b4b4-b8691b410a39', 'maticMumbai');
+        portis.onLogin((walletAddress, email, reputation) => {
+            console.log('Ready Portis')
+        });
         window.web3 = new Web3(portis.provider);
         OracleContract = new web3.eth.Contract(oracleABI, oracleAddress);
-        init();
         alert("We Recommend Getting a Web3 Compatible browser like MetaMask.");
     }
 });
