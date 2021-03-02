@@ -10,6 +10,7 @@ async function init(){
         document.querySelector('#payTo').innerText = getParameterByName('to');
         window.RECEIVER = getParameterByName('to');
         getParityAmount(getParameterByName('amt')).then((amt)=>{
+            console.log(amt);
             document.querySelector('#payAmount').innerText = amt.toFixed(2);
         })
 
@@ -80,11 +81,26 @@ async function getParityFactor(_queryIndex){
 
 
 async function getParityAmount(amt = 0){
-    let locData = await fetch('https://freegeoip.app/json/');
-    let userLoc = await locData.json()
-    let pf = await getParityFactor(SUPPORTED_CODES_ALPHA2.indexOf(userLoc['country_code'])+1)
-    window.PAYABLE_AMT = parseFloat(amt)*pf;
-    return PAYABLE_AMT
+
+    let promise = new Promise((res, rej) => {
+
+        fetch('https://freegeoip.app/json/')
+        .then(response => response.json())
+        .then(async (userLoc) => {
+            let pf = await getParityFactor(SUPPORTED_CODES_ALPHA2.indexOf(userLoc['country_code'])+1)
+            window.PAYABLE_AMT = parseFloat(amt)*pf;
+            res(PAYABLE_AMT)
+        })
+        .catch((e)=>{
+            console.log(e);
+            window.PAYABLE_AMT = parseFloat(amt);
+            res(PAYABLE_AMT)
+        })
+
+    });
+
+    let result = await promise;
+    return result;
 
 }
 
@@ -94,7 +110,7 @@ async function copylink(){
     let amt = document.querySelector('#inpvalue').value;
     let to = document.querySelector('#inpadd').value;
 
-    copyToClipboard(`https://themis.anudit.dev/?to=${to}&amt=${amt}`)
+    copyToClipboard(`http://localhost/?to=${to}&amt=${amt}`)
 
     let btnCopy = document.querySelector('#btn-copy');
     btnCopy.innerText = 'Done';

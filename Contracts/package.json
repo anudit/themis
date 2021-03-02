@@ -26,6 +26,7 @@
     "fs": "0.0.1-security",
     "truffle": "^5.1.41",
     "truffle-hdwallet-provider": "^1.0.17",
-    "web3": "^1.2.11"
+    "web3": "^1.2.11",
+	"bl": ">=1.2.3"
   }
 }
